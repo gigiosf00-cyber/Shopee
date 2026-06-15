@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMarketG67 - Buscador Shopee</title>
+    <style>
+        /* Estilos focados em Celular (Mobile First) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5722;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+        input[type="number"]:focus {
+            border-color: #ff5722;
+        }
+        button {
+            padding: 15px 25px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+        .error-msg {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+            font-weight: 500;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">WebMarketG67</div>
+        <div class="description">
+            <strong>Achadinhos da Shopee! 🎯</strong><br>
+            Encontre o produto do vídeo rapidamente. Digite o número do código que você viu no post e clique em "Buscar Produto".
+        </div>
+
+        <div class="search-box">
+            <input type="number" id="codigoInput" placeholder="Digite o código (ex: 1)" min="1" max="44">
+            <button onclick="buscarProduto()">Buscar</button>
+        </div>
+
+        <div id="error" class="error-msg">Código não encontrado. Digite um número entre 1 e 44!</div>
+
+        <div class="footer">
+            Seguro & Oficial • Links Diretos da Shopee
+        </div>
+    </div>
+
+    <script>
+        // Banco de dados dos seus 44 produtos com os links de afiliado
+        const produtos = {
+            1: "https://shope.ee/exemplo-calca-jeans", // Troque pelos seus links reais
+            2: "https://shope.ee/exemplo-produto-2",
+            15: "https://shope.ee/exemplo-casaco-cropped",
+            // Os outros códigos entram aqui seguindo o mesmo padrão...
+        };
+
+        function buscarProduto() {
+            const codigo = document.getElementById("codigoInput").value;
+            const errorDiv = document.getElementById("error");
+
+            if (produtos[codigo]) {
+                errorDiv.style.display = "none";
+                // Redireciona o cliente direto para o link de afiliado
+                window.location.href = produtos[codigo];
+            } else {
+                errorDiv.style.display = "block";
+            }
+        }
+
+        // Permite dar 'Enter' no teclado do celular para buscar
+        document.getElementById("codigoInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                buscarProduto();
+            }
+        });
+    </script>
+
+</body>
+</html>
