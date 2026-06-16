@@ -6,7 +6,7 @@
     <title>WEBMARKETG67 | Central de Achadinhos</title>
     <!-- Ícones Modernos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Fonte Google Inter (Usada pelas maiores startups do mundo) -->
+    <!-- Fonte Google Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
             --text-main: #0f172a;
             --text-muted: #64748b;
             
-            /* Cores das Lojas Suavizadas e Modernas */
+            /* Cores das Lojas */
             --shopee: #ee4d2d;
             --amazon: #232f3e;
             --mercadolivre: #ffe600;
@@ -82,7 +82,7 @@
             margin-top: 4px;
         }
 
-        /* Caixa de Instrução Neo-Minimalista */
+        /* Caixa de Instrução */
         .instruction-card {
             background-color: #f1f5f9;
             border-radius: 16px;
@@ -173,7 +173,7 @@
         .success { color: #16a34a; }
         .error { color: #dc2626; }
 
-        /* Divisor Elegante */
+        /* Divisor */
         .divider {
             display: flex;
             align-items: center;
@@ -195,7 +195,7 @@
         .divider:not(:empty)::before { margin-right: 12px; }
         .divider:not(:empty)::after { margin-left: 12px; }
 
-        /* Grade de Botões de Curiosos (Lojas Completas) */
+        /* Grade de Botões */
         .grid-stores {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -250,7 +250,6 @@
             border-radius: 20px;
         }
 
-        /* Customização individual dos ícones das lojas */
         .btn-shopee .store-icon { background-color: var(--shopee); }
         .btn-amazon .store-icon { background-color: var(--amazon); }
         .btn-ml .store-icon { background-color: var(--mercadolivre); color: #111; }
@@ -266,7 +265,7 @@
         <div class="subtitle">Sua Central de Achadinhos Diretos</div>
     </div>
 
-    <!-- Instrução Direta Baseada na sua ideia -->
+    <!-- Instrução Direta -->
     <div class="instruction-card">
         <i class="fas fa-arrow-pointer"></i>
         <span>Escolha o magazine ou digite o código do post para ir direto!</span>
@@ -278,7 +277,7 @@
         <button class="btn-search" onclick="buscarAcao()">Buscar</button>
     </div>
 
-    <!-- Mensagens de Erro/Sucesso integradas ao novo layout -->
+    <!-- Mensagens de Erro/Sucesso -->
     <div id="msgSucesso" class="feedback-msg success"></div>
     <div id="msgErro" class="feedback-msg error">Código não encontrado! Verifique a letra e o número.</div>
 
@@ -317,7 +316,7 @@
 </div>
 
 <script>
-    // 1. BANCO DE DADOS ATUALIZADO COM SEUS LINKS REAIS DA SHOPEE (S1 até S44)
+    // 1. BANCO DE DADOS OFICIAL COM SEUS 44 LINKS DA SHOPEE
     const linksProdutos = {
         "S1": "https://s.shopee.com.br/5fmNYHnfuD",
         "S2": "https://s.shopee.com.br/40e9ZNCvsV",
@@ -364,13 +363,13 @@
         "S43": "https://s.shopee.com.br/6AieI2OOZC",
         "S44": "https://s.shopee.com.br/7fXS4rqbuv",
 
-        // --- EXEMPLOS PARA OUTRAS LOJAS (Basta alimentar quando tiver os links) ---
-        "A1": "https://amazon.com.br/link-da-amazon",
-        "M1": "https://mercadolivre.com/link-do-mercado-livre",
-        "G1": "https://magazineluiza.com.br/link-da-magalu"
+        // Exemplos para você preencher depois nas outras plataformas:
+        "A1": "https://amazon.com.br/seu-link-afiliado-aqui",
+        "M1": "https://mercadolivre.com/seu-link-afiliado-aqui",
+        "G1": "https://magazineluiza.com.br/seu-link-afiliado-aqui"
     };
 
-    // 2. LINKS DAS SUAS VITRINES COMPLETAS (Para os usuários curiosos que clicam nos botões)
+    // 2. LINKS DAS VITRINES DAS LOJAS (Basta mudar pelos seus perfis oficiais)
     function abrirVitrine(loja) {
         const vitrines = {
             'shopee': 'https://shope.ee/SUA_VITRINE_COMPLETA_AQUI',
@@ -378,10 +377,12 @@
             'mercadolivre': 'https://perfil.mercadolivre.com.br/SEU_USER_AQUI',
             'magalu': 'https://www.magazinevoce.com.br/magazineSEUUSER/'
         };
-        window.location.href = vitrines[loja];
+        
+        // Abre a vitrine em uma nova aba limpa
+        window.open(vitrines[loja], '_blank');
     }
 
-    // Ação do Botão Buscar Geral
+    // 3. SISTEMA DE BUSCA INTELIGENTE POR NOVA ABA (Pula a tela de cookies)
     function buscarAcao() {
         const valorInput = document.getElementById('inputCodigo').value.trim().toUpperCase();
         const msgErro = document.getElementById('msgErro');
@@ -399,17 +400,24 @@
             msgSucesso.innerText = "Redirecionando para a loja... 🛍️";
             msgSucesso.style.display = "block";
             
+            // Abre o link direto em uma nova janela limpa para forçar a abertura do App
             setTimeout(function() {
-                window.location.href = linksProdutos[valorInput];
+                const novaAba = window.open(linksProdutos[valorInput], '_blank');
+                if (novaAba) {
+                    novaAba.focus();
+                } else {
+                    // Caso o celular trave o pop-up, faz o plano B na mesma página
+                    window.location.href = linksProdutos[valorInput];
+                }
             }, 600);
         } else {
             msgSucesso.style.display = "none";
-            msgErro.innerText = "Código não encontrado! Lembre-se de usar a letra (Ex: S1, A5...)";
+            msgErro.innerText = "Código não encontrado! Use a letra correspondente (Ex: S1, A5...)";
             msgErro.style.display = "block";
         }
     }
 
-    // Ativar busca automática ao apertar "Enter" no teclado
+    // Ativar busca automática com o "Enter" do teclado
     document.getElementById('inputCodigo').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             buscarAcao();
