@@ -19,9 +19,6 @@
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --text-muted: #64748b;
-            
-            /* Cores das Lojas */
-            --shopee: #ee4d2d;
         }
 
         * {
@@ -39,7 +36,7 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 30px 15px;
+            padding: 40px 15px;
         }
 
         .container {
@@ -126,7 +123,7 @@
             border: none;
             background: transparent;
             outline: none;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-main);
             padding: 12px 16px;
@@ -160,126 +157,32 @@
             font-size: 14px;
             font-weight: 600;
             margin-top: -20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: none;
         }
         .success { color: #16a34a; }
         .error { color: #dc2626; }
 
-        /* Divisor */
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: #cbd5e1;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-        }
-
-        .divider::before, .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .divider:not(:empty)::before { margin-right: 12px; }
-        .divider:not(:empty)::after { margin-left: 12px; }
-
-        /* Nova Vitrine de Imagens */
-        .vitrine-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: left;
-        }
-
-        .product-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: transform 0.2s;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .product-image-wrapper {
-            width: 100%;
-            height: 260px;
-            overflow: hidden;
-            background: #f1f5f9;
-            position: relative;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-code-tag {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--primary);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 800;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .product-details {
-            padding: 16px;
-        }
-
-        .product-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .btn-buy-now {
+        /* Botão para abrir Loja Geral no final */
+        .btn-loja-geral {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            background-color: var(--shopee);
+            gap: 10px;
+            margin-top: 10px;
+            background: #ee4d2d;
             color: white;
             text-decoration: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
+            padding: 16px;
+            border-radius: 16px;
             font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 4px 12px rgba(238, 77, 45, 0.2);
             transition: background 0.2s;
         }
 
-        .btn-buy-now:hover {
-            background-color: #d73a1e;
-        }
-
-        /* Botão para abrir Loja Geral no final */
-        .btn-loja-geral {
-            display: block;
-            margin-top: 15px;
-            background: #0f172a;
-            color: white;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 14px;
+        .btn-loja-geral:hover {
+            background: #d73a1e;
         }
     </style>
 </head>
@@ -294,13 +197,13 @@
 
     <!-- Instrução Direta -->
     <div class="instruction-card">
-        <i class="fas fa-arrow-pointer"></i>
-        <span>Digite o código do post para ir direto ou veja as opções abaixo!</span>
+        <i class="fas fa-search"></i>
+        <span>Digite o código do produto do vídeo para ir direto para a loja oficial!</span>
     </div>
 
     <!-- Buscador Geral -->
     <div class="search-container">
-        <input type="text" id="inputCodigo" placeholder="Ex: S1, S46..." autocomplete="off">
+        <input type="text" id="inputCodigo" placeholder="Ex: S1, S45, S46..." autocomplete="off">
         <button class="btn-search" onclick="buscarAcao()">Buscar</button>
     </div>
 
@@ -308,36 +211,14 @@
     <div id="msgSucesso" class="feedback-msg success"></div>
     <div id="msgErro" class="feedback-msg error">Código não encontrado! Verifique o número.</div>
 
-    <!-- Seção da Vitrine Visual -->
-    <div class="divider">Vitrine de Achadinhos</div>
-
-    <div class="vitrine-container">
-        
-        <!-- CARD DO PRODUTO S46 (Macacão Fitness) -->
-        <div class="product-card">
-            <div class="product-image-wrapper">
-                <span class="product-code-tag">CÓDIGO S46</span>
-                <!-- O GitHub vai ler o seu link de imagem aqui: -->
-                <img class="product-image" src="https://s.shopee.com.br/BRV7soQ6M" alt="Macacão Fitness Poliamida">
-            </div>
-            <div class="product-details">
-                <h3 class="product-title">Macacão Fitness Poliamida Liso Básico</h3>
-                <a href="https://s.shopee.com.br/9zvQpuwXPV" target="_blank" class="btn-buy-now">
-                    <i class="fas fa-shopping-cart"></i> Ver na Shopee
-                </a>
-            </div>
-        </div>
-
-    </div>
-
     <!-- Botão de Bônus para ver a vitrine oficial inteira -->
     <a href="https://collshp.com/gefshopee" target="_blank" class="btn-loja-geral">
-        <i class="fas fa-store"></i> Ver Minha Vitrine Completa Shopee
+        <i class="fas fa-shopping-bag"></i> Ver Minha Vitrine Completa
     </a>
 </div>
 
 <script>
-    // BANCO DE DADOS DE LINKS (Para o Buscador)
+    // BANCO DE DADOS OFICIAL (Onde você cadastrará todos os links futuros)
     const linksProdutos = {
         "S1": "https://s.shopee.com.br/5fmNYHnfuD", "S2": "https://s.shopee.com.br/40e9ZNCvsV",
         "S3": "https://s.shopee.com.br/2BCVO3w5jU", "S4": "https://s.shopee.com.br/4AxZlpYVkV",
@@ -362,8 +243,6 @@
         "S41": "https://s.shopee.com.br/7Kubg2oKcc", "S42": "https://s.shopee.com.br/30lcWAbf90",
         "S43": "https://s.shopee.com.br/6AieI2OOZC", "S44": "https://s.shopee.com.br/7fXS4rqbuv",
         "S45": "https://s.shopee.com.br/30lgRFLiyb",
-        
-        // Novo Macacão cadastrado na busca!
         "S46": "https://s.shopee.com.br/9zvQpuwXPV"
     };
 
