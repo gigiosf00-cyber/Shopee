@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEBMARKETG67 | Central de Achadinhos</title>
-    <!-- Ícones Modernos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Fonte Google Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -278,23 +276,21 @@
 
     <div class="instruction-card">
         <i class="fas fa-search"></i>
-        <span>Digite o código do produto ou veja as opções reais listadas abaixo!</span>
+        <span>Digite o código do produto ou veja os lançamentos listados abaixo!</span>
     </div>
 
     <div class="search-container">
-        <input type="text" id="inputCodigo" placeholder="Ex: S46, S49..." autocomplete="off">
+        <input type="text" id="inputCodigo" placeholder="Ex: S46, S50, S52..." autocomplete="off">
         <button class="btn-search" onclick="buscarAcao()">Buscar</button>
     </div>
 
     <div id="msgSucesso" style="display:none; color:#16a34a; font-weight:600; margin-bottom:20px;">Redirecionando... 🛍️</div>
     <div id="msgErro" style="display:none; color:#dc2626; font-weight:600; margin-bottom:20px;">Código não encontrado!</div>
 
-    <div class="divider">Vitrine de Achadinhos</div>
+    <div class="divider">Novos Lançamentos</div>
 
-    <!-- VITRINE COM CÓDIGOS DISCRETOS NO TOPO DA IMAGEM -->
     <div class="vitrine-container">
         
-        <!-- PRODUTO S46 -->
         <div class="product-card">
             <div class="product-header-bar">
                 <div class="product-code-discreet">REF: <span>#S46</span></div>
@@ -304,42 +300,104 @@
                 <img class="product-image" src="https://s.shopee.com.br/8ATmd4ijj3" alt="Calça Wide Leg">
             </div>
             <div class="product-details">
-                <h3 class="product-title">Calça Wide Leg Pantalona Elegante</h3>
+                <h3 class="product-title">Calça Wide Leg Pantalona</h3>
                 <a href="https://s.shopee.com.br/70HpDRKLTD" target="_blank" class="btn-buy-now">
                     <i class="fas fa-shopping-cart"></i> Pegar Produto
                 </a>
             </div>
         </div>
 
-        <!-- PRODUTO S47 -->
         <div class="product-card">
             <div class="product-header-bar">
                 <div class="product-code-discreet">REF: <span>#S47</span></div>
-                <small style="color: #94a3b8; font-size: 11px;">Casa & Decoração</small>
+                <small style="color: #94a3b8; font-size: 11px;">Decoração</small>
             </div>
             <div class="product-image-wrapper">
                 <img class="product-image" src="https://s.shopee.com.br/7EV5qna1Qj" alt="Capas Almofadas">
             </div>
             <div class="product-details">
-                <h3 class="product-title">Kit de Capas para Almofadas Decorativas</h3>
+                <h3 class="product-title">Kit Capas para Almofadas</h3>
                 <a href="https://s.shopee.com.br/9fIaQg9Mq8" target="_blank" class="btn-buy-now">
                     <i class="fas fa-shopping-cart"></i> Pegar Produto
                 </a>
             </div>
         </div>
 
-        <!-- PRODUTO S49 -->
         <div class="product-card">
             <div class="product-header-bar">
-                <div class="product-code-discreet">REF: <span>#S46</span></div>
+                <div class="product-code-discreet">REF: <span>#S48</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Casa</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/4AxdswPCyc" alt="Mesa Retrátil">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Mesa Retrátil de Parede Multiuso</h3>
+                <a href="https://s.shopee.com.br/W4LW7RzHZ" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S49</span></div>
                 <small style="color: #94a3b8; font-size: 11px;">Fitness</small>
             </div>
             <div class="product-image-wrapper">
                 <img class="product-image" src="https://s.shopee.com.br/BRV7soQ6M" alt="Macacão Fitness">
             </div>
             <div class="product-details">
-                <h3 class="product-title">Macacão Fitness Poliamida Básico</h3>
+                <h3 class="product-title">Macacão Fitness Poliamida</h3>
                 <a href="https://s.shopee.com.br/9zvQpuwXPV" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S50</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Cozinha</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/60PI4tCgzB" alt="Tábua de Corte">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Tábua de Corte com Encaixe Bancada/Pia</h3>
+                <a href="https://s.shopee.com.br/gNlj3SEfa" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S51</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Utilidades</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/1gGIvUb37i" alt="Pegador de Sacola">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Kit 2 Peças Carregador/Pegador de Sacola</h3>
+                <a href="https://s.shopee.com.br/6VLYgLEVWa" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S52</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Moda Jeans</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/W4Ld9VuYB" alt="Calça Jeans">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Calça Jeans Super Lipo Sawary com Cinta</h3>
+                <a href="https://s.shopee.com.br/W4LXzpBIy" target="_blank" class="btn-buy-now">
                     <i class="fas fa-shopping-cart"></i> Pegar Produto
                 </a>
             </div>
@@ -353,6 +411,7 @@
 </div>
 
 <script>
+    // Banco de dados completo para o Buscador Inteligente
     const linksProdutos = {
         "S46": "https://s.shopee.com.br/70HpDRKLTD",
         "S47": "https://s.shopee.com.br/9fIaQg9Mq8",
