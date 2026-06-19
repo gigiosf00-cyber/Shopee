@@ -19,6 +19,7 @@
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --text-muted: #64748b;
+            --shopee: #ee4d2d;
         }
 
         * {
@@ -36,7 +37,7 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 40px 15px;
+            padding: 30px 15px;
         }
 
         .container {
@@ -49,7 +50,7 @@
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        /* Header Premium */
+        /* Header */
         .brand-wrapper {
             margin-bottom: 24px;
         }
@@ -76,7 +77,7 @@
             margin-top: 4px;
         }
 
-        /* Caixa de Instrução */
+        /* Instrução */
         .instruction-card {
             background-color: #f1f5f9;
             border-radius: 16px;
@@ -100,7 +101,7 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
-        /* Buscador Flutuante */
+        /* Buscador */
         .search-container {
             position: relative;
             display: flex;
@@ -123,7 +124,7 @@
             border: none;
             background: transparent;
             outline: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-main);
             padding: 12px 16px;
@@ -148,133 +149,218 @@
             transition: all 0.2s ease;
         }
 
-        .btn-search:hover {
-            background-color: var(--primary-hover);
+        /* Divisor */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
         }
 
-        /* Mensagens de feedback */
-        .feedback-msg {
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .divider:not(:empty)::before { margin-right: 12px; }
+        .divider:not(:empty)::after { margin-left: 12px; }
+
+        /* Estilo da Vitrine Visual */
+        .vitrine-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        /* Código Discreto na parte Superior da Imagem */
+        .product-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .product-code-discreet {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .product-code-discreet span {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .product-image-wrapper {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 16px;
+        }
+
+        .product-title {
             font-size: 14px;
             font-weight: 600;
-            margin-top: -20px;
-            margin-bottom: 25px;
-            display: none;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
-        .success { color: #16a34a; }
-        .error { color: #dc2626; }
 
-        /* Botão para abrir Loja Geral no final */
+        .btn-buy-now {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--shopee);
+            color: white;
+            text-decoration: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+
+        .btn-buy-now:hover { background-color: #d73a1e; }
+
         .btn-loja-geral {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 10px;
-            background: #ee4d2d;
+            background: #0f172a;
             color: white;
             text-decoration: none;
             padding: 16px;
             border-radius: 16px;
             font-weight: 700;
             font-size: 15px;
-            box-shadow: 0 4px 12px rgba(238, 77, 45, 0.2);
-            transition: background 0.2s;
-        }
-
-        .btn-loja-geral:hover {
-            background: #d73a1e;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Header -->
     <div class="brand-wrapper">
         <div class="logo"><i class="fas fa-bolt"></i> WEBMARKET<span>G67</span></div>
         <div class="subtitle">Sua Central de Achadinhos Diretos</div>
     </div>
 
-    <!-- Instrução Direta -->
     <div class="instruction-card">
         <i class="fas fa-search"></i>
-        <span>Digite o código do produto do vídeo para ir direto para a loja oficial!</span>
+        <span>Digite o código do produto ou veja as opções reais listadas abaixo!</span>
     </div>
 
-    <!-- Buscador Geral -->
     <div class="search-container">
-        <input type="text" id="inputCodigo" placeholder="Ex: S1, S25, S50..." autocomplete="off">
+        <input type="text" id="inputCodigo" placeholder="Ex: S46, S49..." autocomplete="off">
         <button class="btn-search" onclick="buscarAcao()">Buscar</button>
     </div>
 
-    <!-- Mensagens de Erro/Sucesso -->
-    <div id="msgSucesso" class="feedback-msg success"></div>
-    <div id="msgErro" class="feedback-msg error">Código não encontrado! Verifique o número.</div>
+    <div id="msgSucesso" style="display:none; color:#16a34a; font-weight:600; margin-bottom:20px;">Redirecionando... 🛍️</div>
+    <div id="msgErro" style="display:none; color:#dc2626; font-weight:600; margin-bottom:20px;">Código não encontrado!</div>
 
-    <!-- Botão de Bônus para ver a vitrine oficial inteira -->
+    <div class="divider">Vitrine de Achadinhos</div>
+
+    <!-- VITRINE COM CÓDIGOS DISCRETOS NO TOPO DA IMAGEM -->
+    <div class="vitrine-container">
+        
+        <!-- PRODUTO S46 -->
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S46</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Moda Feminina</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/8ATmd4ijj3" alt="Calça Wide Leg">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Calça Wide Leg Pantalona Elegante</h3>
+                <a href="https://s.shopee.com.br/70HpDRKLTD" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUTO S47 -->
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S47</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Casa & Decoração</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/7EV5qna1Qj" alt="Capas Almofadas">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Kit de Capas para Almofadas Decorativas</h3>
+                <a href="https://s.shopee.com.br/9fIaQg9Mq8" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+        <!-- PRODUTO S49 -->
+        <div class="product-card">
+            <div class="product-header-bar">
+                <div class="product-code-discreet">REF: <span>#S46</span></div>
+                <small style="color: #94a3b8; font-size: 11px;">Fitness</small>
+            </div>
+            <div class="product-image-wrapper">
+                <img class="product-image" src="https://s.shopee.com.br/BRV7soQ6M" alt="Macacão Fitness">
+            </div>
+            <div class="product-details">
+                <h3 class="product-title">Macacão Fitness Poliamida Básico</h3>
+                <a href="https://s.shopee.com.br/9zvQpuwXPV" target="_blank" class="btn-buy-now">
+                    <i class="fas fa-shopping-cart"></i> Pegar Produto
+                </a>
+            </div>
+        </div>
+
+    </div>
+
     <a href="https://collshp.com/gefshopee" target="_blank" class="btn-loja-geral">
         <i class="fas fa-shopping-bag"></i> Ver Minha Vitrine Completa
     </a>
 </div>
 
 <script>
-    // BANCO DE DADOS ATUALIZADO (S1 até S52)
     const linksProdutos = {
-        // Seção Iniciais / Novos adicionados
-        "S1": "https://s.shopee.com.br/5fmNYHnfuD", // calca jeans
-        "S2": "https://s.shopee.com.br/40e9ZNCvsV", // conjunto blazer
-        "S3": "https://s.shopee.com.br/2BCVO3w5jU", // blazer casequeto
-        "S4": "https://s.shopee.com.br/4AxZlpYVkV", // calca cos alto legging
-        "S5": "https://s.shopee.com.br/8V6YvrCLJL", // conjunto 3 peças com blazer
-        "S6": "https://s.shopee.com.br/7VE1k6RKSC", // vestido manga lg canelado
-        "S7": "https://s.shopee.com.br/9KffvZ8mbC", // blusa social mg 3/4
-        "S8": "https://s.shopee.com.br/3LOSmoGIkq", // conj lanzinha 3 pecas
-        "S9": "https://s.shopee.com.br/1BK6DxC5CH", // vestido Longo gola alta
-        "S10": "https://s.shopee.com.br/7AbBRI9o4a", // jaqueta cotele
-        "S11": "https://s.shopee.com.br/3g1JH0jtQu", // macacão Longo virginia
-        "S12": "https://s.shopee.com.br/180uPqR2j",  // conj casaco croped mg longa
-        "S13": "https://s.shopee.com.br/8fPzEOvD1w", // conj blazer premium
-        "S14": "https://s.shopee.com.br/8V6Z2A8b1J", // conj vestido c casaco
-        "S15": "https://s.shopee.com.br/gNhhvoo5l",  // Jaqueta esportiva dry fit
-        "S16": "https://s.shopee.com.br/AKYDDnybD9", // jaquetinha esportiva solar
-        "S17": "https://s.shopee.com.br/3qKjTtzVyR", // kit 3 blusas mg longa
-        "S18": "https://s.shopee.com.br/50Wgs9XPou", // vestido lg jeans lg
-        "S19": "https://s.shopee.com.br/7KubeXH9wC", // blusa Tricô losango
-        "S20": "https://s.shopee.com.br/5q5nrpCrJB", // blusa mg longa bicolor
-        "S21": "https://s.shopee.com.br/60PE4B2DFB", // jaqueta de couro premium
-        "S22": "https://s.shopee.com.br/70HlGAkws5", // vestido lg alcinha
-        "S23": "https://s.shopee.com.br/7KubepsEIa", // cardigan tricot lg
-        "S24": "https://s.shopee.com.br/AAEn26WgSn", // conj lanzinha lg cadaco_pantalona
-        "S25": "https://s.shopee.com.br/6L24T8A3mR", // jaqueta croped fitns
-        "S26": "https://s.shopee.com.br/7Kubf1NBqB", // casaco tricot xadrez
-        "S27": "https://s.shopee.com.br/7VE1rNXzc7", // cardigan kimono
-        "S28": "https://s.shopee.com.br/1gGEuoLuf8", // moleton masc com Capuz
-        "S29": "https://s.shopee.com.br/5Aq75IcAu8", // vestido midi canelado
-        "S30": "https://s.shopee.com.br/qh7vP7U8W",  // vestido tricot elegante
-        "S31": "https://s.shopee.com.br/W4HWtbkOe",  // cardigan tricot botão dourado
-        "S32": "https://s.shopee.com.br/8Kn8rKu46U", // pijama femin felpudo xadrez
-        "S33": "https://s.shopee.com.br/9zvMqks25N", // casaco teddy com zíper
-        "S34": "https://s.shopee.com.br/6VLUgPtvan", // blusa Tricô delicada
-        "S35": "https://s.shopee.com.br/4ftqV5UYNs", // sueter tricot
-        "S36": "https://s.shopee.com.br/7Kubg2oKcc", // bota coturno tratorado
-        "S37": "https://s.shopee.com.br/30lcWAbf90", // body mg longa
-        "S38": "https://s.shopee.com.br/7fXS4rqbuv", // vestido canelado gola transpassada
-        "S39": "https://s.shopee.com.br/6L292lz8Ol", // calca cos alto
-        "S40": "https://s.shopee.com.br/9AMKQaHOoX", // vestido camurca tubo
-        "S41": "https://s.shopee.com.br/7KughZrOKz", // conj feminino moleton moletinho
-        "S42": "https://s.shopee.com.br/2LW0kx9Pzp", // kit e pares bota xano enrugado
-        "S43": "https://s.shopee.com.br/3B57kpsp0y", // Bota luniss camursa suede cano alto
-        "S44": "https://s.shopee.com.br/7AbGbRuXGM", // bota cano Longo com salto estilosa
-        "S45": "https://s.shopee.com.br/3g1QMaNIar", // vest fem curto mg longa envelope
-        
-        // Novos Lotes de Vídeos cadastrados na sequência lógica
-        "S46": "https://s.shopee.com.br/70HpDRKLTD", // calca wide leg pantalona
-        "S47": "https://s.shopee.com.br/9fIaQg9Mq8", // capas almofadas
-        "S48": "https://s.shopee.com.br/W4LW7RzHZ",  // mesa retrátil de parede multiuso
-        "S49": "https://s.shopee.com.br/9zvQpuwXPV", // macacão fitness poliamida
-        "S50": "https://s.shopee.com.br/gNlj3SEfa",  // tabua de corte com encaixe
-        "S51": "https://s.shopee.com.br/6VLYgLEVWa", // kit 2 pecas carregador sacola
-        "S52": "https://s.shopee.com.br/W4LXzpBIy"   // calca jeans super lipo sawary
+        "S46": "https://s.shopee.com.br/70HpDRKLTD",
+        "S47": "https://s.shopee.com.br/9fIaQg9Mq8",
+        "S48": "https://s.shopee.com.br/W4LW7RzHZ",
+        "S49": "https://s.shopee.com.br/9zvQpuwXPV",
+        "S50": "https://s.shopee.com.br/gNlj3SEfa",
+        "S51": "https://s.shopee.com.br/6VLYgLEVWa",
+        "S52": "https://s.shopee.com.br/W4LXzpBIy"
     };
 
     function buscarAcao() {
@@ -282,32 +368,17 @@
         const msgErro = document.getElementById('msgErro');
         const msgSucesso = document.getElementById('msgSucesso');
 
-        if (valorInput === "") {
-            msgSucesso.style.display = "none";
-            msgErro.innerText = "Por favor, digite o código do post!";
-            msgErro.style.display = "block";
-            return;
-        }
-
         if (linksProdutos[valorInput]) {
             msgErro.style.display = "none";
-            msgSucesso.innerText = "Redirecionando para a loja... 🛍️";
             msgSucesso.style.display = "block";
-            
             setTimeout(function() {
-                const novaAba = window.open(linksProdutos[valorInput], '_blank');
-                if (novaAba) { novaAba.focus(); } else { window.location.href = linksProdutos[valorInput]; }
+                window.open(linksProdutos[valorInput], '_blank');
             }, 600);
         } else {
             msgSucesso.style.display = "none";
             msgErro.style.display = "block";
         }
     }
-
-    document.getElementById('inputCodigo').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') { buscarAcao(); }
-    });
 </script>
-
 </body>
 </html>
