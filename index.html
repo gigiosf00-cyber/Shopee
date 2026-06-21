@@ -3,36 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBMARKETG67 | Busca Rápida</title>
+    <title>WEBMARKETG67 | Central de Achadinhos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #ee4d2d; --bg: #f8fafc; }
+        :root { --primary: #ee4d2d; --bg: #f8fafc; --text: #0f172a; }
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
-        body { background: var(--bg); display:flex; justify-content:center; align-items:center; min-height:100vh; padding:15px; }
-        .container { background:#fff; width:100%; max-width:400px; border-radius:24px; padding:30px; text-align:center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .logo { font-size:26px; font-weight:800; margin-bottom:20px; }
-        .logo span { color: var(--primary); }
-        .search-box { background:#f1f5f9; padding:20px; border-radius:18px; border:2px solid #e2e8f0; }
-        .search-box p { font-size:14px; font-weight:700; margin-bottom:12px; }
-        input { width:100%; padding:12px; border-radius:12px; border:1px solid #cbd5e1; outline:none; text-align:center; font-weight:700; font-size:18px; text-transform:uppercase; }
-        .btn-search { width:100%; background:var(--primary); color:#fff; border:none; padding:15px; border-radius:12px; margin-top:10px; font-weight:800; cursor:pointer; }
-        .menu-links { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
-        .btn-vitrine { display:block; padding:15px; background:#f1f5f9; color:#475569; text-decoration:none; border-radius:12px; font-weight:700; font-size:14px; }
+        body { background:var(--bg); color:var(--text); display:flex; justify-content:center; align-items:center; min-height:100vh; padding:15px; }
+        .container { background:#fff; width:100%; max-width:420px; border-radius:24px; padding:30px 24px; text-align:center; box-shadow:0 10px 25px rgba(0,0,0,0.06); }
+        .logo { font-size:24px; font-weight:800; margin-bottom:4px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .logo span { color:var(--primary); }
+        .subtitle { font-size:13px; color:#64748b; margin-bottom:24px; }
+        .search-box { background:#f1f5f9; border:2px solid #e2e8f0; border-radius:18px; padding:18px; margin-bottom:24px; }
+        .search-box p { font-size:13px; font-weight:700; margin-bottom:10px; }
+        .search-box input { width:100%; padding:12px; border-radius:12px; border:1px solid #cbd5e1; outline:none; text-align:center; font-weight:800; font-size:20px; text-transform:uppercase; letter-spacing:2px; color: var(--primary); }
+        .btn-search { width:100%; background:var(--primary); color:#fff; border:none; padding:14px; border-radius:12px; margin-top:10px; font-weight:800; font-size:15px; cursor:pointer; }
+        #msgErro { display:none; color:#dc2626; font-weight:700; margin-top:8px; font-size:13px; }
+        .divider { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+        .divider hr { flex:1; border:none; border-top:1px solid #e2e8f0; }
+        .divider span { font-size:12px; color:#94a3b8; font-weight:600; white-space:nowrap; }
+        .market-buttons { display:flex; flex-direction:column; gap:12px; }
+        .btn-market { display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-radius:14px; text-decoration:none; font-weight:700; font-size:15px; color:white; }
+        .shopee { background:#ee4d2d; }
+        .mercado-livre { background:#fff159; color:#333; }
+        .amazon { background:#232f3e; }
+        .badge { font-size:10px; background:rgba(255,255,255,0.25); padding:3px 8px; border-radius:20px; font-weight:600; }
+        .badge-dark { background:rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="logo"><i class="fas fa-shopping-bag"></i> SHOP<span>G67</span></div>
+    <div class="logo"><i class="fas fa-shopping-bag"></i> WEBMARKET<span>G67</span></div>
+    <div class="subtitle">Achadinhos com os melhores preços 🛍️</div>
+
     <div class="search-box">
-        <p>Digite o código do produto (Ex: S1):</p>
-        <input type="text" id="codigo" placeholder="S...">
-        <button class="btn-search" onclick="buscar()">IR PARA PRODUTO</button>
+        <p>Já tem o código? Digite aqui:</p>
+        <input type="text" id="codigo" placeholder="Ex: S1">
+        <button class="btn-search" onclick="buscar()">BUSCAR PRODUTO</button>
+        <div id="msgErro">Código não encontrado!</div>
     </div>
-    <div class="menu-links">
-        <a href="shopee.html" class="btn-vitrine">Ver Vitrine Completa Shopee</a>
+
+    <div class="divider"><hr><span>OU NAVEGUE POR LOJA</span><hr></div>
+
+    <div class="market-buttons">
+        <a href="shopee.html" class="btn-market shopee">
+            <span><i class="fas fa-store"></i> Vitrine Shopee</span>
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        <a href="#" class="btn-market mercado-livre">
+            <span><i class="fas fa-box"></i> Mercado Livre</span>
+            <span class="badge badge-dark">Breve</span>
+        </a>
+        <a href="#" class="btn-market amazon">
+            <span><i class="fab fa-amazon"></i> Amazon</span>
+            <span class="badge">Breve</span>
+        </a>
     </div>
 </div>
+
 <script>
     const links = {
         "S1": "https://s.shopee.com.br/70HpDRKLTD", "S2": "https://s.shopee.com.br/9fIaQg9Mq8",
@@ -63,11 +91,24 @@
         "S51": "https://s.shopee.com.br/1BK3Qq9fPJ", "S52": "https://s.shopee.com.br/7AbGbRuXGM",
         "S53": "https://s.shopee.com.br/3g1QMaNIar"
     };
+
     function buscar() {
         const val = document.getElementById('codigo').value.trim().toUpperCase();
-        if(links[val]) { window.location.href = links[val]; }
-        else { alert("Código não encontrado!"); }
+        const msgErro = document.getElementById('msgErro');
+        if(links[val]) {
+            msgErro.style.display = 'none';
+            window.location.href = links[val];
+        } else {
+            msgErro.style.display = 'block';
+        }
     }
+    
+    // Permitir buscar ao apertar Enter
+    document.getElementById('codigo').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            buscar();
+        }
+    });
 </script>
 </body>
 </html>
