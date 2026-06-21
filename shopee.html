@@ -1,54 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Catálogo Shopee</title>
+    <title>Achadinhos Shopee | G67</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 20px; }
-        .card { width: 250px; border: 1px solid #ddd; padding: 15px; text-align: center; border-radius: 8px; }
-        .item-numero { font-weight: bold; font-size: 1.2em; margin-bottom: 10px; display: block; }
-        .img-produto { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
-        .btn-comprar { display: block; margin-top: 10px; padding: 10px; background-color: #ee4d2d; color: white; text-decoration: none; border-radius: 4px; }
+        :root { --shopee-orange: #ee4d2d; --bg: #f5f5f5; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg); padding-bottom: 50px; }
+        
+        /* Cabeçalho */
+        header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .search-container { margin-top: 15px; position: relative; max-width: 500px; margin-inline: auto; }
+        input { width: 100%; padding: 12px 40px; border-radius: 25px; border: 2px solid #ddd; outline: none; font-size: 16px; }
+        input:focus { border-color: var(--shopee-orange); }
+        .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #888; }
+
+        /* Grade de Produtos */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 15px; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: 0.3s; }
+        .card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; background: #eee; }
+        .card-info { padding: 10px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .code-tag { font-size: 11px; color: #888; font-weight: bold; margin-bottom: 5px; }
+        .btn-buy { background: var(--shopee-orange); color: white; text-decoration: none; text-align: center; padding: 8px; border-radius: 6px; font-weight: bold; font-size: 14px; margin-top: 10px; }
+        
+        .no-results { text-align: center; padding: 50px; color: #666; display: none; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Repita este bloco para cada produto -->
-    <div class="card"><span class="item-numero">001</span><img src="53656.jpg" class="img-produto"><a href="LINK_001" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">002</span><img src="53654.jpg" class="img-produto"><a href="LINK_002" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">003</span><img src="53652.jpg" class="img-produto"><a href="LINK_003" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">004</span><img src="53651.jpg" class="img-produto"><a href="LINK_004" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">005</span><img src="53650.jpg" class="img-produto"><a href="LINK_005" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">006</span><img src="53648.jpg" class="img-produto"><a href="LINK_006" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">007</span><img src="53647.jpg" class="img-produto"><a href="LINK_007" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">008</span><img src="53646.jpg" class="img-produto"><a href="LINK_008" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">009</span><img src="53645.jpg" class="img-produto"><a href="LINK_009" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">010</span><img src="53644.jpg" class="img-produto"><a href="LINK_010" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">011</span><img src="53643.jpg" class="img-produto"><a href="LINK_011" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">012</span><img src="53642.jpg" class="img-produto"><a href="LINK_012" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">013</span><img src="53641.jpg" class="img-produto"><a href="LINK_013" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">014</span><img src="53640.jpg" class="img-produto"><a href="LINK_014" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">015</span><img src="53639.jpg" class="img-produto"><a href="LINK_015" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">016</span><img src="53638.jpg" class="img-produto"><a href="LINK_016" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">017</span><img src="53637.jpg" class="img-produto"><a href="LINK_017" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">018</span><img src="53636.jpg" class="img-produto"><a href="LINK_018" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">019</span><img src="53635.jpg" class="img-produto"><a href="LINK_019" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">020</span><img src="53634.jpg" class="img-produto"><a href="LINK_020" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">021</span><img src="53633.jpg" class="img-produto"><a href="LINK_021" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">022</span><img src="53632.jpg" class="img-produto"><a href="LINK_022" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">023</span><img src="53631.jpg" class="img-produto"><a href="LINK_023" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">024</span><img src="53630.jpg" class="img-produto"><a href="LINK_024" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">025</span><img src="53629.jpg" class="img-produto"><a href="LINK_025" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">026</span><img src="53626.jpg" class="img-produto"><a href="LINK_026" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">027</span><img src="53625.jpg" class="img-produto"><a href="LINK_027" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">028</span><img src="53624.jpg" class="img-produto"><a href="LINK_028" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">029</span><img src="53623.jpg" class="img-produto"><a href="LINK_029" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">030</span><img src="53622.jpg" class="img-produto"><a href="LINK_030" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">031</span><img src="53619.jpg" class="img-produto"><a href="LINK_031" class="btn-comprar">Ver na Shopee</a></div>
-    <div class="card"><span class="item-numero">032</span><img src="53618.jpg" class="img-produto"><a href="LINK_032" class="btn-comprar">Ver na Shopee</a></div>
+<header>
+    <h2 style="color: var(--shopee-orange); font-weight: 800;">SHOP<span>G67</span></h2>
+    <p style="font-size: 12px; color: #666;">Digite o código do vídeo do Pinterest:</p>
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Ex: 53656" onkeyup="buscar()">
+    </div>
+</header>
+
+<div class="grid" id="productGrid">
+    
+    <!-- PRODUTO 1 -->
+    <div class="card" data-code="53656">
+        <img src="53656.jpg" alt="Produto">
+        <div class="card-info">
+            <span class="code-tag">CÓDIGO: 53656</span>
+            <a href="ENCURTADOR_DA_SHOPEE_AQUI" class="btn-buy" target="_blank">VER NA SHOPEE</a>
+        </div>
+    </div>
+
+    <!-- PRODUTO 2 -->
+    <div class="card" data-code="53654">
+        <img src="53654.jpg" alt="Produto">
+        <div class="card-info">
+            <span class="code-tag">CÓDIGO: 53654</span>
+            <a href="ENCURTADOR_DA_SHOPEE_AQUI" class="btn-buy" target="_blank">VER NA SHOPEE</a>
+        </div>
+    </div>
+
 </div>
+
+<div id="noResults" class="no-results">
+    <i class="fas fa-search-minus" style="font-size: 40px; margin-bottom: 10px;"></i>
+    <p>Código não encontrado.</p>
+</div>
+
+<script>
+    function buscar() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('card');
+        let grid = document.getElementById('productGrid');
+        let noResults = document.getElementById('noResults');
+        let found = false;
+
+        for (let i = 0; i < cards.length; i++) {
+            let code = cards[i].getAttribute('data-code').toLowerCase();
+            if (code.includes(input)) {
+                cards[i].style.display = "flex";
+                found = true;
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+        
+        noResults.style.display = found ? "none" : "block";
+    }
+</script>
 
 </body>
 </html>
