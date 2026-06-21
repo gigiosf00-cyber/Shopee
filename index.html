@@ -11,6 +11,7 @@
         :root {
             --background: #f8fafc;
             --card-bg: #ffffff;
+            --shopee: #ee4d2d;
             --text-main: #0f172a;
             --text-muted: #64748b;
         }
@@ -32,52 +33,79 @@
             width: 100%;
             max-width: 400px;
             border-radius: 24px;
-            padding: 35px 24px;
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        .logo { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
-        .logo span { color: #ff5722; }
-        .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; }
+        .logo { font-size: 26px; font-weight: 800; margin-bottom: 15px; }
+        .logo span { color: var(--shopee); }
 
-        .market-buttons { display: flex; flex-direction: column; gap: 16px; }
+        /* BUSCADOR NA HOME */
+        .search-box {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+            border: 2px solid #e2e8f0;
+        }
+        .search-box p { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: var(--text-main); }
+        .input-group { position: relative; }
+        .input-group input {
+            width: 100%; padding: 12px 15px 12px 40px;
+            border-radius: 12px; border: 1px solid #cbd5e1;
+            outline: none; font-size: 15px;
+        }
+        .input-group i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--shopee); }
+        .btn-search {
+            width: 100%; background: var(--shopee); color: white;
+            border: none; padding: 12px; border-radius: 12px;
+            margin-top: 10px; font-weight: 700; cursor: pointer;
+        }
+
+        .divider { height: 1px; background: #e2e8f0; margin: 20px 0; position: relative; }
+        .divider span { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: white; padding: 0 10px; font-size: 12px; color: #94a3b8; }
+
+        .market-buttons { display: flex; flex-direction: column; gap: 12px; }
 
         .btn-market {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 20px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            color: white;
-            transition: transform 0.2s;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 15px 18px; border-radius: 14px;
+            text-decoration: none; font-weight: 700; font-size: 15px;
+            transition: 0.2s;
         }
-        .btn-market:hover { transform: scale(1.02); }
+        .btn-market:hover { transform: scale(1.02); opacity: 0.9; }
 
-        .shopee { background: #ee4d2d; }
+        .shopee { background: var(--shopee); color: white; }
         .mercado-livre { background: #fff159; color: #333; }
-        .amazon { background: #232f3e; }
+        .amazon { background: #232f3e; color: white; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo"><i class="fas fa-shopping-bag"></i> WEBMARKET<span>G67</span></div>
-    <div class="subtitle">Escolha uma plataforma para ver os achadinhos:</div>
+    <div class="logo"><i class="fas fa-shopping-bag"></i> SHOP<span>G67</span></div>
+    
+    <!-- BUSCADOR POR CÓDIGO -->
+    <div class="search-box">
+        <p>Já tem o código do produto?</p>
+        <div class="input-group">
+            <i class="fas fa-search"></i>
+            <input type="text" id="homeSearch" placeholder="Ex: 015">
+        </div>
+        <button class="btn-search" onclick="irParaProduto()">BUSCAR PRODUTO</button>
+    </div>
+
+    <div class="divider"><span>OU NAVEGUE POR LOJA</span></div>
 
     <div class="market-buttons">
-        <!-- Direciona para a página interna criada -->
         <a href="shopee.html" class="btn-market shopee">
-            <span><i class="fab fa-shopee"></i> Vitrine Shopee</span>
+            <span><i class="fas fa-store"></i> Vitrine Shopee</span>
             <i class="fas fa-chevron-right"></i>
         </a>
 
-        <!-- Futuras plataformas (Exemplos) -->
         <a href="#" class="btn-market mercado-livre">
-            <span><i class="fas fa-store"></i> Mercado Livre (Breve)</span>
+            <span><i class="fas fa-box"></i> Mercado Livre (Breve)</span>
             <i class="fas fa-chevron-right"></i>
         </a>
 
@@ -87,6 +115,18 @@
         </a>
     </div>
 </div>
+
+<script>
+    function irParaProduto() {
+        const code = document.getElementById('homeSearch').value.trim();
+        if (code !== "") {
+            // Isso envia o usuário para a página da shopee já filtrando pelo código
+            window.location.href = "shopee.html?id=" + code;
+        } else {
+            alert("Por favor, digite um código!");
+        }
+    }
+</script>
 
 </body>
 </html>
